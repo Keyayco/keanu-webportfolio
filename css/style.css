@@ -1,0 +1,214 @@
+/* Global Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  min-height: 100vh;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.dot {
+  color: #ff66c4;
+}
+.nav-links a {
+  margin-left: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #00ffe7;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+}
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+}
+.highlight {
+  background: linear-gradient(to right, #ff66c4, #00ffe7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Sections */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.projects,
+.about,
+.contact {
+  padding: 4rem 2rem;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Contact */
+.contact-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #00ffe7, #ff66c4);
+  color: #000;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: transform 0.3s;
+}
+.contact-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .nav-links {
+    font-size: 0.95rem;
+  }
+}
+
+/* === Dark Mode Styles === */
+:root.dark {
+  background: linear-gradient(135deg, #000428, #004e92);
+  color: #e0e0e0;
+}
+:root.dark .project-card {
+  background: rgba(255, 255, 255, 0.08);
+}
+:root.dark .contact-btn {
+  background: linear-gradient(to right, #ff6f91, #ffc107);
+  color: #000;
+}
+:root.dark .navbar,
+:root.dark .footer {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* === Toggle Button === */
+.theme-toggle {
+  margin-left: auto;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* === Modal Popup === */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 20, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  animation: fadeIn 0.3s ease;
+}
+.modal-content {
+  background: #1e1e2f;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+.modal-content .close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.project-card {
+  animation: fadeIn 0.6s ease;
+}
+
+/* Page Transition Fade */
+body.fade-in {
+  opacity: 0;
+  animation: fadeInPage 0.7s forwards;
+}
+@keyframes fadeInPage {
+  to { opacity: 1; }
+}
