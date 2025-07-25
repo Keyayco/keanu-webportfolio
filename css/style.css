@@ -212,3 +212,28 @@ body.fade-in {
 @keyframes fadeInPage {
   to { opacity: 1; }
 }
+.project-card a {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.project-card a {
+  color: #ff77ff;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(to right, #ff77ff, #77ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.project-card a::after {
+  content: ' 🔗';
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.project-card a:hover::after {
+  transform: rotate(20deg);
+}
